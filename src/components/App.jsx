@@ -1,40 +1,53 @@
-import useUpdatingClock from 'hooks/useUpdatingClock'
+import ExpenseItem from './ExpenseItem';
 
-export default function App() {
-  const {hour, minutes, seconds, amPm} = useUpdatingClock()
+function App() {
+  const expenses = [
+    {
+      id: 'e1',
+      title: 'Toilet Paper',
+      amount: 94.12,
+      date: new Date(2020, 7, 14),
+    },
+    { id: 'e2', title: 'New TV', amount: 799.49, date: new Date(2021, 2, 12) },
+    {
+      id: 'e3',
+      title: 'Car Insurance',
+      amount: 294.67,
+      date: new Date(2021, 2, 28),
+    },
+    {
+      id: 'e4',
+      title: 'New Desk (Wooden)',
+      amount: 450,
+      date: new Date(2021, 5, 12),
+    },
+  ];
 
   return (
-    <div className="df flex-col vh-100">
-      <header className="pv24 bg-gold black-80 tc">
-        <h1 className="mt0 mb0">Create New App</h1>
-        <div>By The Qodesmith</div>
-      </header>
-
-      <section className="flex-grow-1 bg-black-80 fw4 white-80 tc pt24">
-        <div>
-          Your application starts in the{' '}
-          <code>
-            src/<span className="b white">entry.jsx</span>
-          </code>{' '}
-          file.
-        </div>
-
-        <div>
-          The component you're looking here at can be found in{' '}
-          <code>
-            src/components/<span className="b white">App.jsx</span>
-          </code>
-        </div>
-
-        <div>
-          Now go! Save the world with <span className="gold">JavaScript</span>!
-        </div>
-
-        <div className="pa16 f-1-5em">
-          {hour}:{minutes}:{seconds}
-          <span className="f-initial pl4">{amPm}</span>
-        </div>
-      </section>
+    <div>
+      <h2>Let's get started!</h2>
+      <ExpenseItem
+        title={expenses[0].title}
+        amount={expenses[0].amount}
+        date={expenses[0].date}
+      ></ExpenseItem>
+      <ExpenseItem
+        title={expenses[1].title}
+        amount={expenses[1].amount}
+        date={expenses[1].date}
+      ></ExpenseItem>
+      <ExpenseItem
+        title={expenses[2].title}
+        amount={expenses[2].amount}
+        date={expenses[2].date}
+      ></ExpenseItem>
+      <ExpenseItem
+        title={expenses[3].title}
+        amount={expenses[3].amount}
+        date={expenses[3].date}
+      ></ExpenseItem>
     </div>
-  )
+  );
 }
+
+export default App;
