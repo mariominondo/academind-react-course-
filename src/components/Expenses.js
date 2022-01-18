@@ -1,13 +1,14 @@
 import './Expenses.css';
+import ExpenseItem from './ExpenseItem';
 
 function Expenses(props) {
     return(
         <div>
-            <ExpenseItem props.expenses[0].title />
-            props.expenses[0].amount
-            props.expenses[0].date
+            <ExpenseItem expenses = {props.expenses[0]} />
+            <ExpenseItem expenses = {props.expenses[1]} />
+            <ExpenseItem expenses = {props.expenses[2]} />
         </div>
-    );    
+    );  
 }
 
 export default Expenses;
